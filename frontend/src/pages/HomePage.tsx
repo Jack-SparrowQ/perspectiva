@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
-import { checkBackend } from "../services/api.ts";
 
 function HomePage() {
   const [backendStatus, setBackendStatus] = useState("Checking...");
-
-  useEffect(() => {
-    checkBackend()
-      .then(() => setBackendStatus("Backend conectado"))
-      .catch(() => setBackendStatus("Backend no disponible"));
-  }, []);
 
   return (
     <main>

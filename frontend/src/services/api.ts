@@ -1,11 +1,22 @@
-const API_URL = "http://localhost:8080/api";
+import type { Scenario } from "../types/scenario";
 
-export async function checkBackend(): Promise<boolean> {
-  const response = await fetch(`${API_URL}/health`);
+const API_URL = "/api";
+
+export async function getScenarios(): Promise<Scenario[]> {
+  const response = await fetch(`${API_URL}/scenarios`);
 
   if (!response.ok) {
-    return false;
+    throw new Error("No se pudieron obtener los escenarios");
   }
 
-  return true;
+  return response.json();
+}
+
+export async function getScenario(id: number): Promise<Scenario> {
+  const response = await fetch(`${API_URL}/scenarios/${id}`);
+
+  if (!response.ok) {
+    throw new Error("No se pudo obtener el escenario");
+  }
+  return response.json();
 }
