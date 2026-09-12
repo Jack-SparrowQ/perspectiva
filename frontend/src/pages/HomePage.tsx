@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { startEvaluation } from "../services/api";
+import CardImage from "../components/CardImage";
 
 function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -20,15 +21,16 @@ function HomePage() {
 
   return (
     <main>
-      <h1>¿Cómo funciona mi mente?</h1>
+      <CardImage
+        cardTitle="Como funciona la mente?"
+        cardDescription="Explora cómo interpretas diferentes situaciones de la vida cotidiana."
+        textButton="Empezar"
+        urlImg="src\assets\chillbro.jpg"
+      />
 
-      <p>
-        Explora cómo interpretas diferentes situaciones de la vida cotidiana.
-      </p>
-
-      <button onClick={handleStart} disabled={loading}>
+      {/* <button onClick={handleStart} disabled={loading}>
         {loading ? "Iniciando..." : "Comenzar"}
-      </button>
+      </button> */}
     </main>
   );
 }
