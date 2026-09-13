@@ -1,4 +1,12 @@
-import { Questionnaire } from "../components/ui/questionnaire";
+import {
+  Questionnaire,
+  QuestionnaireActions,
+  QuestionnaireChoices,
+  QuestionnaireNext,
+  QuestionnairePrevious,
+  QuestionnaireProgress,
+  QuestionnaireSkip,
+} from "../components/ui/questionnaire";
 import QuestionUI from "../components/Question";
 import Scenary from "../components/Scenary";
 
@@ -18,11 +26,24 @@ export function QuestionnairePage() {
         </div>
         <div className="relative mx-auto w-full max-w-sm pt-0">
           <Questionnaire className="mx-auto max-w-md">
+            <QuestionnaireProgress></QuestionnaireProgress>
             <QuestionUI
+              name="1"
               title="titulo de la preguna"
               description="descripcion"
               options={options}
             />
+
+            <QuestionUI
+              name="2"
+              title="titulo de la preguna"
+              description="descripcion"
+              options={options}
+            />
+
+            <QuestionnaireActions>
+              <QuestionnaireNext />
+            </QuestionnaireActions>
           </Questionnaire>
         </div>
       </div>

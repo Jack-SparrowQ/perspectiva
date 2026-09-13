@@ -1,3 +1,7 @@
+import type React from "react";
+
+import { Questionnaire as QuestionnairePrimitive } from "@shadcn/react/questionnaire";
+
 import {
   QuestionnaireChoice,
   QuestionnaireChoices,
@@ -7,23 +11,27 @@ import {
   QuestionnaireTitle,
 } from "./ui/questionnaire";
 
-interface questionProps {
+type questionProps = {
   title: string;
   description?: string;
   options: string[];
-}
+} & React.ComponentProps<typeof QuestionnairePrimitive.Item>;
 
-export function QuestionUI(props: questionProps) {
+export function QuestionUI({
+  title,
+  description,
+  options,
+  className,
+  ...props
+}: questionProps) {
   return (
-    <QuestionnaireItem name="">
-      <QuestionnaireTitle className="text-left">
-        {props.title}
-      </QuestionnaireTitle>
+    <QuestionnaireItem {...props}>
+      <QuestionnaireTitle className="text-left">{title}</QuestionnaireTitle>
       <QuestionnaireDescription className="text-left">
-        {props.description}
+        {description}
       </QuestionnaireDescription>
       <QuestionnaireChoices>
-        {props.options.map((choice) => (
+        {options.map((choice) => (
           <QuestionnaireChoice value="choice">{choice}</QuestionnaireChoice>
         ))}
       </QuestionnaireChoices>
