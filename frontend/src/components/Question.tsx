@@ -16,8 +16,12 @@ interface questionProps {
 export function QuestionUI(props: questionProps) {
   return (
     <QuestionnaireItem name="">
-      <QuestionnaireTitle>{props.title}</QuestionnaireTitle>
-      <QuestionnaireDescription>{props.description}</QuestionnaireDescription>
+      <QuestionnaireTitle className="text-left">
+        {props.title}
+      </QuestionnaireTitle>
+      <QuestionnaireDescription className="text-left">
+        {props.description}
+      </QuestionnaireDescription>
       <QuestionnaireChoices>
         {props.options.map((choice) => (
           <QuestionnaireChoice value="choice">{choice}</QuestionnaireChoice>
