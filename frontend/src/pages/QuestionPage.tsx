@@ -1,54 +1,23 @@
-import {
-  Questionnaire,
-  QuestionnaireActions,
-  QuestionnaireChoices,
-  QuestionnaireNext,
-  QuestionnairePrevious,
-  QuestionnaireProgress,
-  QuestionnaireSkip,
-} from "../components/ui/questionnaire";
-import QuestionUI from "../components/Question";
-import Scenary from "../components/Scenary";
+import { Questionnaire } from "../components/questionnaire/Questionnaire";
+import { questionService } from "../services/question.service";
 
-export function QuestionnairePage() {
-  const options = ["option 1", "option 2", "option 2"];
+export function QuestionPage() {
+  const questions = questionService.getQuestions();
 
   return (
-    <>
-      <div>Hola</div>
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="relative mx-auto w-full max-w-sm pt-0">
-          <Scenary
-            text="In modern software development, mocking plays a crucial role in achieving test coverage and ensuring high-quality code. This blog will walk you through a hands-on example of implementing mock testing in a React project. The process involves creating a reusable component, identifying a testing challenge, and applying mocks to solve it."
-            description="aqui va la el contexto"
-            title="Aqui el titulo"
-          />
-        </div>
-        <div className="relative mx-auto w-full max-w-sm pt-0">
-          <Questionnaire className="mx-auto max-w-md">
-            <QuestionnaireProgress></QuestionnaireProgress>
-            <QuestionUI
-              name="1"
-              title="titulo de la preguna"
-              description="descripcion"
-              options={options}
-            />
+    <main className="min-h-screen bg-muted/30">
+      <div className="mx-auto max-w-6xl px-4 py-8 md:py-12">
+        <header className="mb-8">
+          <p className="text-left mt-2 text-muted-foreground">
+            Lee cada situación y selecciona la respuesta que más se acerque a lo
+            que pensarías.
+          </p>
+        </header>
 
-            <QuestionUI
-              name="2"
-              title="titulo de la preguna"
-              description="descripcion"
-              options={options}
-            />
-
-            <QuestionnaireActions>
-              <QuestionnaireNext />
-            </QuestionnaireActions>
-          </Questionnaire>
-        </div>
+        <Questionnaire questions={questions} />
       </div>
-    </>
+    </main>
   );
 }
 
-export default QuestionnairePage;
+export default QuestionPage;
