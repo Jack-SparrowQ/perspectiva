@@ -3,10 +3,13 @@ import { useState } from "react";
 import { Scenary } from "./Scenary";
 import { ProgressBar } from "./ProgressBar";
 import { QuestionUI } from "./Question";
-import { Questionnaire as Questionnaire1 } from "../ui/questionnaire";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-
+import {
+  Questionnaire as Questionnaire1,
+  QuestionnaireActions,
+  QuestionnaireNext,
+} from "../ui/questionnaire";
 import type { Question as QuestionType } from "../../types/question";
 
 interface QuestionnaireProps {
@@ -89,7 +92,6 @@ export function Questionnaire({ questions }: QuestionnaireProps) {
 
       <div className="grid gap-6 md:grid-cols-2">
         <Scenary content={currentQuestion.scenary} />
-
         <Questionnaire1>
           <QuestionUI
             question={currentQuestion}
@@ -99,6 +101,9 @@ export function Questionnaire({ questions }: QuestionnaireProps) {
             onSelectOption={handleSelectOption}
             onNext={handleNext}
           />
+          <QuestionnaireActions>
+            <QuestionnaireNext onClick={handleNext}>Next</QuestionnaireNext>
+          </QuestionnaireActions>
         </Questionnaire1>
       </div>
     </div>

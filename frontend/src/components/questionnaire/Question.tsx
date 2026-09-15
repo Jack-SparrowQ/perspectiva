@@ -45,11 +45,6 @@ export function QuestionUI({
           onChange={onSelectOption}
         />
         {error && <p className="text-sm text-destructive">{error}</p>}
-        <CardFooter className="justify-end">
-          <Button onClick={onNext}>
-            {isLastQuestion ? "Terminar" : "Siguiente"}
-          </Button>
-        </CardFooter>
       </QuestionnaireItem>
     </>
   );
