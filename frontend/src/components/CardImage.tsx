@@ -1,5 +1,7 @@
+import { Children } from "react";
 import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardAction,
@@ -14,9 +16,12 @@ interface CardImageProps {
   cardDescription: string;
   textButton: string;
   urlImg?: string;
+  urlButton: string;
 }
 
 export function CardImage(props: CardImageProps) {
+  const navigate = useNavigate();
+
   return (
     <div className="flex items-center justify-center min-h-screen">
       <Card className="relative mx-auto w-full max-w-sm pt-0 ">
@@ -27,14 +32,15 @@ export function CardImage(props: CardImageProps) {
           className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
         />
         <CardHeader>
-          <CardAction>
-            <Badge variant="secondary">Featured</Badge>
-          </CardAction>
-          <CardTitle>{props.cardTitle}</CardTitle>
-          <CardDescription>{props.cardDescription}</CardDescription>
+          <CardTitle className="text-left">{props.cardTitle}</CardTitle>
+          <CardDescription className="text-left">
+            {props.cardDescription}
+          </CardDescription>
         </CardHeader>
         <CardFooter>
-          <Button className="w-full">{props.textButton}</Button>
+          <Button className="w-full" onClick={() => navigate(props.urlButton)}>
+            {props.textButton}
+          </Button>
         </CardFooter>
       </Card>
     </div>
