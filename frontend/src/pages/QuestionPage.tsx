@@ -1,5 +1,6 @@
 import { Questionnaire } from "../components/questionnaire/Questionnaire";
 import { questionService } from "../services/question.service";
+import { Questionnaire as QuestionnaireType } from "../components/ui/questionnaire";
 
 export function QuestionPage() {
   const questions = questionService.getQuestions();
@@ -14,7 +15,9 @@ export function QuestionPage() {
           </p>
         </header>
 
-        <Questionnaire questions={questions} />
+        <QuestionnaireType>
+          <Questionnaire questions={questions} />
+        </QuestionnaireType>
       </div>
     </main>
   );

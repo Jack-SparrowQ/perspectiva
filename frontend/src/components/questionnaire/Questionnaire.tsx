@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import { Scenary } from "./Scenary";
 import { ProgressBar } from "./ProgressBar";
-import { QuestionUI } from "./Question";
+import { Question } from "./Question";
+import { Button } from "../ui/button";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
   Questionnaire as Questionnaire1,
   QuestionnaireActions,
-  QuestionnaireNext,
 } from "../ui/questionnaire";
 import type { Question as QuestionType } from "../../types/question";
 
@@ -92,19 +92,14 @@ export function Questionnaire({ questions }: QuestionnaireProps) {
 
       <div className="grid gap-6 md:grid-cols-2">
         <Scenary content={currentQuestion.scenary} />
-        <Questionnaire1>
-          <QuestionUI
-            question={currentQuestion}
-            selectedOptionId={selectedOptionId}
-            error={error}
-            isLastQuestion={isLastQuestion}
-            onSelectOption={handleSelectOption}
-            onNext={handleNext}
-          />
-          <QuestionnaireActions>
-            <QuestionnaireNext onClick={handleNext}>Next</QuestionnaireNext>
-          </QuestionnaireActions>
-        </Questionnaire1>
+        <Question
+          question={currentQuestion}
+          selectedOptionId={selectedOptionId}
+          error={error}
+          isLastQuestion={isLastQuestion}
+          onSelectOption={handleSelectOption}
+          onNext={handleNext}
+        />
       </div>
     </div>
   );

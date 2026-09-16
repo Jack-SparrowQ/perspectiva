@@ -13,7 +13,13 @@ import {
 } from "../ui/questionnaire";
 import { QuestionOptions } from "./QuestionOptions";
 import { Button } from "../ui/button";
-import { Card, CardFooter } from "../ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 
 interface QuestionProps {
   question: QuestionType;
@@ -25,7 +31,7 @@ interface QuestionProps {
   onNext: () => void;
 }
 
-export function QuestionUI({
+export function Question({
   question,
   selectedOptionId,
   error,
@@ -34,18 +40,25 @@ export function QuestionUI({
   onSelectOption,
 }: QuestionProps) {
   return (
-    <>
-      <QuestionnaireItem name={question.id}>
-        <QuestionnaireTitle className="text-left">
+    <Card>
+      <CardHeader>
+        <CardTitle className="tex-xl leading-relaxed">
           {question.title}
-        </QuestionnaireTitle>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
         <QuestionOptions
           options={question.options}
           value={selectedOptionId}
           onChange={onSelectOption}
         />
-        {error && <p className="text-sm text-destructive">{error}</p>}
-      </QuestionnaireItem>
-    </>
+        {error && <p className="text-ms text-destructive">{error}</p>}
+      </CardContent>
+      <CardFooter className="justify-end">
+        <Button onClick={onNext}>
+          {isLastQuestion ? "Terminar" : "Siguiente"}
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }
