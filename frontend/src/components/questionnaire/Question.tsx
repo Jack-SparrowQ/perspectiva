@@ -1,16 +1,5 @@
 import type { Question as QuestionType } from "@/types/question";
 
-import {
-  QuestionnaireActions,
-  QuestionnaireChoice,
-  QuestionnaireChoices,
-  QuestionnaireDescription,
-  QuestionnaireError,
-  QuestionnaireItem,
-  QuestionnaireNext,
-  QuestionnaireSubmit,
-  QuestionnaireTitle,
-} from "../ui/questionnaire";
 import { QuestionOptions } from "./QuestionOptions";
 import { Button } from "../ui/button";
 import {

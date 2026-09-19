@@ -47,7 +47,11 @@ export function Questionnaire({ questions }: QuestionnaireProps) {
 
           <p className="mt-4">
             Respuestas registradas:{" "}
-            <strong>{Object.keys(answers).length}</strong>
+            <strong>
+              {Object.keys(answers).map((element) => (
+                <p>{element}</p>
+              ))}
+            </strong>
           </p>
         </CardContent>
       </Card>
