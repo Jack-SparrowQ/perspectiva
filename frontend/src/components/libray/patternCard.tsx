@@ -28,7 +28,7 @@ export function PatternCard(props: CardImageProps) {
         <img
           src={props.urlImg}
           alt="Event cover"
-          className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
+          className="relative z-20 aspect-video w-full object-cover"
         />
         <CardHeader>
           <CardTitle className="text-left">{props.pattern.name}</CardTitle>
