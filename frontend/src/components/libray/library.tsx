@@ -16,11 +16,7 @@ export function Library({ patterns }: LibraryProps) {
 
   return (
     <div className="w-full p-6">
-      <div
-        className=" grid
-      grid-cols-[repeat(auto-fit,minmax(250px,1fr))]
-      gap-66"
-      >
+      <div className="grid grid-cols-3 gap-5">
         {patterns.map((elemet) => (
           <PatternCard pattern={elemet} key={elemet.id} />
         ))}

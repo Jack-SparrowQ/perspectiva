@@ -23,8 +23,8 @@ export function CardImage(props: CardImageProps) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <Card className="relative mx-auto w-full max-w-sm pt-0 ">
+    <div className="h-">
+      <Card className="relative mx-0 h-full w-full max-w-sm pt-0 ">
         <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
         <img
           src={props.urlImg}
@@ -37,7 +37,7 @@ export function CardImage(props: CardImageProps) {
             {props.cardDescription}
           </CardDescription>
         </CardHeader>
-        <CardFooter>
+        <CardFooter className="h-full">
           <Button className="w-full" onClick={() => navigate(props.urlButton)}>
             {props.textButton}
           </Button>
