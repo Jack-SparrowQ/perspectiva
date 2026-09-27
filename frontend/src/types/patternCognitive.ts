@@ -3,4 +3,7 @@ export interface PatternCognitive {
   name: string;
   definition: string;
   example?: string;
+  MethodOfRecognition?: string;
+  ReflectionQuestions?: string;
+  urlImg?: string;
 }
