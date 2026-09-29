@@ -3,27 +3,27 @@ import { useState } from "react";
 import { Scenary } from "./Scenary";
 import { ProgressBar } from "./ProgressBar";
 import { Question } from "./Question";
-import { Button } from "../ui/button";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import {
-  Questionnaire as Questionnaire1,
-  QuestionnaireActions,
-} from "../ui/questionnaire";
 import type { Question as QuestionType } from "../../types/question";
+import { useQuestionnaire } from "../../hooks/useQuestionnaire";
+import { useQuestionnaireAnswers } from "../../hooks/useQuestionnaireAnswers";
 
 interface QuestionnaireProps {
   questions: QuestionType[];
 }
 
 export function Questionnaire({ questions }: QuestionnaireProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const {
+    currentIndex,
+    currentQuestion,
+    isLastQuestion,
+    error,
+    finished,
+    nextQuestion,
+  } = useQuestionnaire(questions);
 
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-
-  const [error, setError] = useState("");
-
-  const [finished, setFinished] = useState(false);
+  const { answers, selectAnswer } = useQuestionnaireAnswers();
 
   if (questions.length === 0) {
     return (
@@ -58,36 +58,14 @@ export function Questionnaire({ questions }: QuestionnaireProps) {
     );
   }
 
-  const currentQuestion = questions[currentIndex];
-
   const selectedOptionId = answers[currentQuestion.id] ?? "";
 
-  const isLastQuestion = currentIndex === questions.length - 1;
-
   function handleSelectOption(optionId: string) {
-    setAnswers((previousAnswers) => ({
-      ...previousAnswers,
-      [currentQuestion.id]: optionId,
-    }));
-
-    setError("");
+    selectAnswer(currentQuestion.id, optionId);
   }
 
   function handleNext() {
-    if (!selectedOptionId) {
-      setError("Selecciona una respuesta antes de continuar.");
-
-      return;
-    }
-
-    setError("");
-
-    if (isLastQuestion) {
-      setFinished(true);
-      return;
-    }
-
-    setCurrentIndex((previousIndex) => previousIndex + 1);
+    nextQuestion(selectedOptionId);
   }
 
   return (
