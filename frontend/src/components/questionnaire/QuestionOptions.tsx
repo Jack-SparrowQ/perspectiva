@@ -21,7 +21,7 @@ export function QuestionOptions({
           key={option.id}
           htmlFor={option.id}
           className="flex cursor-pointer items-center gap-3
-            rounded-lg border p-4
+            rounded-lg border-1 p-4
             transition-colors
             hover:bg-muted m-0"
         >
