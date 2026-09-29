@@ -30,7 +30,7 @@ function HomePage() {
             Explora y conoce de algunos de los patranos cognitivos que hay.
           </p>
           <div className="justify-center">
-            <Button onClick={() => navigate("/biblioteca")}>Explorar</Button>
+            <Button onClick={() => navigate("/biblioteca  ")}>Explorar</Button>
           </div>
         </header>
         <div className="flex justify-center">

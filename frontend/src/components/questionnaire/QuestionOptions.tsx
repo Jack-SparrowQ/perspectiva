@@ -23,7 +23,7 @@ export function QuestionOptions({
           className="flex cursor-pointer items-center gap-3
             rounded-lg border p-4
             transition-colors
-            hover:bg-muted"
+            hover:bg-muted m-0"
         >
           <RadioGroupItem value={option.id} id={option.id} />
           <span>{option.label}</span>

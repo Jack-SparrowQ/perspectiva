@@ -1,1 +1,5 @@
-export interface scenary {}
+export interface Scenary {
+  title: string;
+  description: string;
+  imgUrl?: string;
+}

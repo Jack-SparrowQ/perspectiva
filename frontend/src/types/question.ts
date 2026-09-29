@@ -1,4 +1,4 @@
-import type { scenary } from "./scenary";
+import type { Scenary } from "./scenary";
 
 export interface Option {
   id: string;
@@ -10,5 +10,5 @@ export interface Question {
   id: string;
   title: string;
   options: Option[];
-  scenary: scenary;
+  scenary: Scenary;
 }

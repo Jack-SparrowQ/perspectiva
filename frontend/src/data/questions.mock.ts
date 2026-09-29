@@ -27,6 +27,7 @@ export const questionsMock: Question[] = [
       title: "Presentación frente al grupo",
       description:
         "Estás exponiendo un proyecto frente a tu clase. Durante la presentación olvidas explicar una parte importante y debes continuar.",
+      imgUrl: "src\\assets\\scenary-images\\presentacion-frente-a-un-grupo.jpg",
     },
   },
 
@@ -58,6 +59,7 @@ export const questionsMock: Question[] = [
       title: "Mensaje sin respuesta",
       description:
         "Enviaste un mensaje importante a un amigo hace varias horas, pero todavía no has recibido respuesta.",
+      imgUrl: "src\\assets\\scenary-images\\mensaje-sin-respuesta.jpg",
     },
   },
 
@@ -89,6 +91,7 @@ export const questionsMock: Question[] = [
       title: "Resultado inesperado",
       description:
         "Estudiaste durante varios días para un examen, pero obtuviste una calificación menor de la que esperabas.",
+      imgUrl: "src\\assets\\scenary-images\\resultado-inesperado.jpg",
     },
   },
 
@@ -120,6 +123,7 @@ export const questionsMock: Question[] = [
       title: "Trabajo en equipo",
       description:
         "Durante una reunión propones una idea, pero tus compañeros continúan hablando sin comentarla inmediatamente.",
+      imgUrl: "src\\assets\\scenary-images\\trabajo-en-equipo.jpg",
     },
   },
 
@@ -151,6 +155,7 @@ export const questionsMock: Question[] = [
       title: "Problema durante un proyecto",
       description:
         "Después de varias semanas trabajando en un proyecto aparece un problema que obliga al equipo a modificar una parte de la solución.",
+      imgUrl: "src\\assets\\scenary-images\\problema-durante-un-proyecto.jpg",
     },
   },
 ];
