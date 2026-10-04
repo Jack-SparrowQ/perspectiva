@@ -1,5 +1,5 @@
 export interface PatternCognitive {
-  id: number;
+  id: string;
   name: string;
   definition: string;
   example?: string;

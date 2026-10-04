@@ -9,18 +9,22 @@ export const questionsMock: Question[] = [
       {
         id: "q1-option-1",
         label: "Todos pensarán que soy incompetente.",
+        weights: { "1": 1.0, "2": 0.5 },
       },
       {
         id: "q1-option-2",
         label: "Fue un error puntual y puedo aprender de él.",
+        weights: {},
       },
       {
         id: "q1-option-3",
         label: "Seguramente arruiné toda la presentación.",
+        weights: { "3": 0.75, "5": 0.75, "6": 0.5 },
       },
       {
         id: "q1-option-4",
         label: "Intentaría identificar qué salió mal.",
+        weights: {},
       },
     ],
     scenary: {
@@ -33,25 +37,28 @@ export const questionsMock: Question[] = [
 
   {
     id: "question-2",
-
     title: "¿Cómo interpretarías inicialmente esta situación?",
 
     options: [
       {
         id: "q2-option-1",
         label: "Probablemente hice algo mal.",
+        weights: { "2": 1.0, "1": 0.25 },
       },
       {
         id: "q2-option-2",
         label: "Puede haber muchas razones por las que todavía no responde.",
+        weights: {},
       },
       {
         id: "q2-option-3",
         label: "Seguramente está molesto conmigo.",
+        weights: { "1": 0.75, "2": 0.75, "8": 0.5 },
       },
       {
         id: "q2-option-4",
         label: "Esperaría antes de sacar una conclusión.",
+        weights: {},
       },
     ],
 
@@ -65,25 +72,28 @@ export const questionsMock: Question[] = [
 
   {
     id: "question-3",
-
     title: "¿Cuál sería tu reacción más cercana ante este resultado?",
 
     options: [
       {
         id: "q3-option-1",
         label: "No soy bueno para esta materia.",
+        weights: { "4": 0.75, "5": 0.5, "9": 0.25 },
       },
       {
         id: "q3-option-2",
         label: "Necesito identificar qué temas debo reforzar.",
+        weights: {},
       },
       {
         id: "q3-option-3",
         label: "Siempre me irá mal.",
+        weights: { "4": 1.0, "8": 0.75, "3": 0.5 },
       },
       {
         id: "q3-option-4",
         label: "Buscaría otra estrategia para estudiar.",
+        weights: {},
       },
     ],
 
@@ -97,25 +107,28 @@ export const questionsMock: Question[] = [
 
   {
     id: "question-4",
-
     title: "¿Qué pensamiento aparecería con mayor facilidad?",
 
     options: [
       {
         id: "q4-option-1",
         label: "Mi idea seguramente no era suficientemente buena.",
+        weights: { "9": 0.75, "2": 0.5, "7": 0.5 },
       },
       {
         id: "q4-option-2",
         label: "Tal vez estaban concentrados en otros aspectos.",
+        weights: {},
       },
       {
         id: "q4-option-3",
         label: "Nunca toman en cuenta lo que digo.",
+        weights: { "4": 1.0, "6": 0.75, "PC-10": 0.5 },
       },
       {
         id: "q4-option-4",
         label: "Podría preguntar qué opinan de mi propuesta.",
+        weights: {},
       },
     ],
 
@@ -129,25 +142,28 @@ export const questionsMock: Question[] = [
 
   {
     id: "question-5",
-
     title: "¿Cómo responderías ante esta nueva dificultad?",
 
     options: [
       {
         id: "q5-option-1",
         label: "Esto demuestra que el proyecto no va a funcionar.",
+        weights: { "8": 1.0, "3": 0.75, "4": 0.5 },
       },
       {
         id: "q5-option-2",
         label: "Es un problema que podemos analizar y resolver.",
+        weights: {},
       },
       {
         id: "q5-option-3",
         label: "Todo el trabajo anterior fue inútil.",
+        weights: { "5": 1.0, "6": 0.75, "9": 0.75 },
       },
       {
         id: "q5-option-4",
         label: "Revisaría las posibles causas antes de decidir qué hacer.",
+        weights: {},
       },
     ],
 

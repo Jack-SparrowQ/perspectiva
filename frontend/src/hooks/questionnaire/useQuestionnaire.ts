@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Question } from "../types/question";
+import type { Question } from "../../types/question";
 
 export function useQuestionnaire(questions: Question[]) {
   const [currentIndex, setCurrentIndex] = useState(0);

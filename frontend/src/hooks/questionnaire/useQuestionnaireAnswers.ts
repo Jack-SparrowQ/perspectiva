@@ -1,7 +1,8 @@
+import type { UserAnswers } from "@/types/userAnswers";
 import { useState } from "react";
 
 export function useQuestionnaireAnswers() {
-  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [answers, setAnswers] = useState<UserAnswers>({});
 
   function selectAnswer(questionId: string, optionId: string) {
     setAnswers((previousAnswer) => ({
