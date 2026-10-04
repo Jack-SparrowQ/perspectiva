@@ -10,7 +10,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/home" replace />} />
-
       <Route path="/home" element={<HomePage />} />
       <Route path="/questionnaire" element={<QuestionPage />} />
       <Route path="/biblioteca" element={<LibraryPage />} />

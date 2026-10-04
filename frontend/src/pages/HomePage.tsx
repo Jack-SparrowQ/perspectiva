@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
@@ -95,13 +96,17 @@ export default function HomePage() {
 }
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <nav className="flex w-full items-center justify-between border-t border-b border-neutral-200 px-4 py-0 dark:border-neutral-800">
       <div className="flex items-center gap-2">
         <div className="size-6 rounded-full bg-linear-to-br from-violet-500 to-pink-500" />
         <h1 className="text-base font-bold md:text-xl">Perspectiva</h1>
       </div>
-      <button className="w-20 transform rounded-lg bg-black px-4 py-1.5 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 md:w-28 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+      <button
+        className="w-20 transform rounded-lg bg-black px-4 py-1.5 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 md:w-28 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+        onClick={() => navigate("/biblioteca")}
+      >
         Explorar
       </button>
     </nav>
