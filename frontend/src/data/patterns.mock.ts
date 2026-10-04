@@ -2,7 +2,7 @@ import type { PatternCognitive } from "@/types/patternCognitive";
 
 export const patternsMock: PatternCognitive[] = [
   {
-    id: 1,
+    id: "1",
     name: "Lectura de mente",
     definition:
       "Asumir que se sabe con certeza lo que otras personas están pensando, sintiendo o las intenciones que tienen, generalmente asumiendo juicios negativos hacia uno mismo, sin tener evidencia objetiva que lo confirme.",
@@ -15,7 +15,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\lectura-de-mente.jpg",
   },
   {
-    id: 2,
+    id: "2",
     name: "Personalización",
     definition:
       "Atribuirse la culpa o la responsabilidad de eventos externos negativos sobre los cuales no se tiene control directo, o creer que el comportamiento de los demás es siempre una reacción directa hacia uno mismo.",
@@ -28,7 +28,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\personalizacion.jpg",
   },
   {
-    id: 3,
+    id: "3",
     name: "Catastrofización",
     definition:
       "Imaginar, anticipar o exagerar el peor resultado posible de una situación, transformando un problema menor o una posibilidad remota en un desastre inminente e insuperable.",
@@ -41,7 +41,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\catastrofizacion.jpg",
   },
   {
-    id: 4,
+    id: "4",
     name: "Generalización excesiva",
     definition:
       "Extraer una regla general rígida o una conclusión universal y derrotista a partir de un solo incidente aislado o un evento negativo puntual.",
@@ -54,7 +54,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\generalizacion-excesiva.jpg",
   },
   {
-    id: 5,
+    id: "5",
     name: "Pensamiento dicotómico",
     definition:
       "Evaluar las experiencias, a las personas o a uno mismo en categorías extremas y opuestas, sin reconocer matices o puntos intermedios (blanco o negro).",
@@ -67,7 +67,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\pensamiento-docotomico.jpg",
   },
   {
-    id: 6,
+    id: "6",
     name: "Filtraje",
     definition:
       "Enfocarse exclusivamente en los detalles negativos de una situación, ignorando por completo cualquier aspecto positivo o neutral, de manera que la visión de toda la experiencia se vuelve oscura.",
@@ -80,7 +80,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\filtraje.jpg",
   },
   {
-    id: 7,
+    id: "7",
     name: "Razonamiento emocional",
     definition:
       "Asumir que las emociones que uno siente son un reflejo exacto y objetivo de la realidad, creyendo que si se siente algo, debe ser verdad.",
@@ -93,7 +93,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\razonamiento-emocional.jpg",
   },
   {
-    id: 8,
+    id: "8",
     name: "Anticipación negativa",
     definition:
       "Predecir sistemáticamente que las cosas saldrán mal en el futuro, dando por hecho un desenlace negativo sin tener evidencias sólidas que lo respalden.",
@@ -106,7 +106,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\anticipacion-negativa.jpg",
   },
   {
-    id: 9,
+    id: "9",
     name: "Descalificación de lo positivo",
     definition:
       "Rechazar, minimizar o restarle valor intencionalmente a las experiencias, logros o cualidades positivas, atribuyéndolas a la suerte, al azar o afirmando que 'no cuentan'.",
@@ -119,7 +119,7 @@ export const patternsMock: PatternCognitive[] = [
     urlImg: "src\\assets\\library-images\\descalificacion-de-lo-positivo.jpg",
   },
   {
-    id: 10,
+    id: "10",
     name: "Externalización",
     definition:
       "Atribuir sistemáticamente la culpa de los problemas, errores o emociones negativas propias a otras personas o a las circunstancias, evitando cualquier grado de responsabilidad personal.",

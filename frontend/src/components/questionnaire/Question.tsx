@@ -28,9 +28,9 @@ export function Question({
   onSelectOption,
 }: QuestionProps) {
   return (
-    <Card>
+    <Card className="bg-transparent border-0">
       <CardHeader>
-        <CardTitle className="tex-xl leading-relaxed">
+        <CardTitle className="tex-xl leading-relaxed text-left">
           {question.title}
         </CardTitle>
       </CardHeader>
