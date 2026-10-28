@@ -98,7 +98,7 @@ public class EvaluationService {
 
         boolean alreadyAnswered =
                 evaluationAnswerRepository
-                        .existsByEvaluationIdAndQuestion(
+                        .existsByEvaluationIdAndQuestionId(
                                 evaluationId,
                                 question.getId()
                         );

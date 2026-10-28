@@ -51,6 +51,7 @@ public class ScenarioService {
                 scenario.getTitle(),
                 scenario.getDescription(),
                 scenario.getCategory(),
+                scenario.getImgUrl(),
                 scenario.getOrder(),
                 questions
         );
@@ -81,7 +82,8 @@ public class ScenarioService {
         return new AnswerResponse(
                 answer.getId(),
                 answer.getText(),
-                answer.getOrder()
+                answer.getOrder(),
+                answer.getWeights()
         );
     }
 }

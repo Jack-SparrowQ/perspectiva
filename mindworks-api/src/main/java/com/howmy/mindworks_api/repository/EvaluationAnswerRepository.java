@@ -8,7 +8,7 @@ import com.howmy.mindworks_api.model.EvaluationAnswer;
 
 public interface EvaluationAnswerRepository extends JpaRepository<EvaluationAnswer, Long> {
 
-    boolean existsByEvaluationIdAndQuestion(
+    boolean existsByEvaluationIdAndQuestionId(
         UUID evaluationId, 
         Long questionId
     );

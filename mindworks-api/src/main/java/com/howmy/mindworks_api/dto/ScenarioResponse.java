@@ -7,6 +7,7 @@ public record ScenarioResponse(
         String title,
         String description,
         String category,
+        String imgUrl,
         Integer order,
         List<QuestionResponse> questions
 ) {

@@ -22,6 +22,9 @@ public class Scenario {
     @Column(nullable = false)
     private String category;
 
+    @Column(name = "img_url")
+    private String imgUrl;
+
     @Column(name = "display_order", nullable = false)
     private Integer order;
 
@@ -69,6 +72,14 @@ public class Scenario {
 
     public void setCategory(String category) {
         this.category = category;  
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public Integer getOrder() {

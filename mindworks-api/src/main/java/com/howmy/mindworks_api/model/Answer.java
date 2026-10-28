@@ -2,6 +2,9 @@ package com.howmy.mindworks_api.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Entity
 @Table(name = "answers")
 public class Answer {
@@ -19,6 +22,17 @@ public class Answer {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id", nullable = false)
     private Question question;
+
+    // patternId -> weight; drives the cognitive pattern score in the frontend
+    @ElementCollection
+    @CollectionTable(
+            name = "answer_weights",
+            joinColumns = @JoinColumn(name = "answer_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"answer_id", "pattern_id"})
+    )
+    @MapKeyColumn(name = "pattern_id")
+    @Column(name = "weight", nullable = false)
+    private Map<String, Double> weights = new HashMap<>();
 
     public Answer() {
     }
@@ -53,5 +67,9 @@ public class Answer {
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public Map<String, Double> getWeights() {
+        return weights;
     }
 }
