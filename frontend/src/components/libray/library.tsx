@@ -1,10 +1,7 @@
 import type { PatternCognitive } from "@/types/patternCognitive";
 import { PatternCard } from "./patternCard";
-import { motion } from "motion/react";
 import React from "react";
 import { PatternDrawer } from "./patternDrawer";
-
-import { fadeUp } from "../../../lib/animation";
 
 interface LibraryProps {
   patterns: PatternCognitive[];
@@ -17,40 +14,27 @@ export function Library({ patterns }: LibraryProps) {
 
   if (patterns.length === 0) {
     return (
-      <p className="text-center text-muted-foreground">
-        No hay patrones cognitivos para mostrar
+      <p className="text-muted-foreground">
+        Todavía no hay patrones en la biblioteca.
       </p>
     );
   }
 
   return (
-    <div className="w-full p-6">
-      <div className="grid grid-cols-3 gap-5">
-        {patterns.map((elemet, index) => (
-          <motion.div
-            key={elemet.id}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{
-              duration: 0.4,
-              delay: index * 0.1,
-              ease: "easeInOut",
-            }}
-          >
+    <>
+      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {patterns.map((pattern) => (
+          <li key={pattern.id}>
             <PatternCard
-              pattern={elemet}
-              key={elemet.id}
+              pattern={pattern}
               onOpen={() => {
-                setSelectedItem(elemet);
+                setSelectedItem(pattern);
                 setOpen(true);
               }}
-              urlImg={elemet.urlImg}
             />
-          </motion.div>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {selectedItem && (
         <PatternDrawer
@@ -59,6 +43,6 @@ export function Library({ patterns }: LibraryProps) {
           onOpenChange={setOpen}
         />
       )}
-    </div>
+    </>
   );
 }
