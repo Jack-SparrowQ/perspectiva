@@ -8,16 +8,15 @@ interface ProgressBarProps {
 export function ProgressBar({ current, total }: ProgressBarProps) {
   const progress = (current / total) * 100;
   return (
-    <div className="space-y-2">
-      <div className="flex justify-between text-sm text-muted-foreground">
-        <span>
-          Pregunta {current} de {total}
-        </span>
-
-        <span>{Math.round(progress)}%</span>
-      </div>
-
-      <Progress value={progress} />
+    <div className="flex items-center gap-4">
+      <span className="shrink-0 text-sm text-muted-foreground tabular-nums">
+        Pregunta {current} de {total}
+      </span>
+      <Progress
+        value={progress}
+        aria-label="Progreso del cuestionario"
+        className="flex-1 [&_[data-slot=progress-track]]:h-1.5"
+      />
     </div>
   );
 }

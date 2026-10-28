@@ -15,20 +15,18 @@ export function Modal(props: ModalProps) {
 
   return (
     <Dialog open={props.open} onOpenChange={props.onOpenChange}>
-      <DialogContent>
-        <p className="text-sm font-medium">{props.title}</p>
-        <p>{props.description}</p>
+      <DialogContent className="text-left">
+        <p className="font-heading text-lg font-semibold text-foreground">
+          {props.title}
+        </p>
+        <p className="text-muted-foreground">{props.description}</p>
         <DialogFooter>
-          <div className="flex justify-between m-1">
-            <Button
-              className=" mx-1"
-              variant="secondary"
-              onClick={() => navigate("/home")}
-            >
-              Salir
-            </Button>
-            <Button onClick={() => props.onOpenChange(false)}>Cancelar</Button>
-          </div>
+          <Button variant="outline" onClick={() => navigate("/home")}>
+            Salir sin guardar
+          </Button>
+          <Button onClick={() => props.onOpenChange(false)}>
+            Seguir respondiendo
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

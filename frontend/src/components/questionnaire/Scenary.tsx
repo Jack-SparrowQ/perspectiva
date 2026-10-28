@@ -1,14 +1,4 @@
 import type { Scenary as ScenaryType } from "../../types/scenary";
-import { motion } from "motion/react";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { fadeUp } from "../../../lib/animation";
 
 interface ScenaryProps {
   content: ScenaryType;
@@ -16,34 +6,24 @@ interface ScenaryProps {
 
 export function Scenary({ content }: ScenaryProps) {
   return (
-    <Card className="bg-transparent">
-      <CardHeader>
-        <CardTitle className="text-left">{content.title}</CardTitle>
-      </CardHeader>
-
-      <CardContent>
-        <CardDescription className="text-left text-base leading-relaxed">
-          {content.description}
-        </CardDescription>
-        <motion.div
-          className="m-5"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{
-            duration: 0.4,
-            delay: 0.1,
-            ease: "easeInOut",
-          }}
-        >
-          <img
-            src={content.imgUrl}
-            alt="Event cover"
-            className="relative z-20 aspect-video w-full object-cover rounded-md"
-          />
-        </motion.div>
-      </CardContent>
-    </Card>
+    <section
+      aria-labelledby="scenario-title"
+      className="rounded-3xl bg-primary/8 p-6 md:sticky md:top-6 md:p-8">
+      <h2
+        id="scenario-title"
+        className="font-heading mb-3! text-2xl! leading-snug font-semibold! text-foreground!">
+        {content.title}
+      </h2>
+      <p className="leading-relaxed text-foreground/80">
+        {content.description}
+      </p>
+      {content.imgUrl && (
+        <img
+          src={content.imgUrl}
+          alt=""
+          className="mt-6 aspect-video w-full rounded-2xl object-cover"
+        />
+      )}
+    </section>
   );
 }

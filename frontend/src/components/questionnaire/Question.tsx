@@ -1,19 +1,13 @@
 import type { Question as QuestionType } from "@/types/question";
 import { QuestionOptions } from "./QuestionOptions";
 import { Button } from "../ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
 
 interface QuestionProps {
   question: QuestionType;
   selectedOptionId: string;
   error: string;
   isLastQuestion: boolean;
+  submitting: boolean;
 
   onSelectOption: (optionId: string) => void;
   onNext: () => void;
@@ -24,29 +18,32 @@ export function Question({
   selectedOptionId,
   error,
   isLastQuestion,
+  submitting,
   onNext,
   onSelectOption,
 }: QuestionProps) {
   return (
-    <Card className="bg-transparent border-0">
-      <CardHeader>
-        <CardTitle className="text-xl leading-relaxed text-left">
-          {question.title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <QuestionOptions
-          options={question.options}
-          value={selectedOptionId}
-          onChange={onSelectOption}
-        />
-        {error && <p className="text-sm text-destructive">{error}</p>}
-      </CardContent>
-      <CardFooter className="justify-end">
-        <Button onClick={onNext}>
-          {isLastQuestion ? "Terminar" : "Siguiente"}
+    <section aria-labelledby="question-title">
+      <h3
+        id="question-title"
+        className="font-heading mb-6 text-xl leading-snug font-semibold text-foreground md:text-2xl">
+        {question.title}
+      </h3>
+      <QuestionOptions
+        options={question.options}
+        value={selectedOptionId}
+        onChange={onSelectOption}
+      />
+      <div className="mt-6 flex flex-wrap items-center justify-end gap-4">
+        {error && (
+          <p role="alert" className="mr-auto text-sm text-destructive">
+            {error}
+          </p>
+        )}
+        <Button size="lg" onClick={onNext} disabled={submitting}>
+          {submitting ? "Guardando…" : isLastQuestion ? "Ver mis resultados" : "Siguiente"}
         </Button>
-      </CardFooter>
-    </Card>
+      </div>
+    </section>
   );
 }

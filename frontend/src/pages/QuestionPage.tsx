@@ -37,34 +37,42 @@ export function QuestionPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-muted/30">
-      <div className="mx-auto max-w-6xl px-4 py-8 md:py-12">
-        <header className="flex justify-between mb-1">
-          <p className="text-left mt-2 text-muted-foreground">
-            Lee cada situación y selecciona la respuesta que más se acerque a lo
-            que pensarías.
-          </p>
-          <Button onClick={openModal}>Salir</Button>
+    <div className="mx-auto flex min-h-svh w-full max-w-6xl flex-col px-4 text-left">
+      <nav className="flex shrink-0 items-center justify-between py-5">
+        <span className="font-heading text-xl font-semibold text-foreground">
+          Perspectiva
+        </span>
+        <Button variant="ghost" onClick={openModal}>
+          Salir
+        </Button>
+        <Modal
+          title="¿Quieres salir del cuestionario?"
+          description="Tus respuestas no se guardarán y tendrás que empezar de nuevo."
+          open={isOpen}
+          onOpenChange={closeModal}
+        />
+      </nav>
 
-          <Modal
-            title="¿Estás seguro de que quieres finalizar?"
-            description="Si lo haces todo el progreso no se guardará"
-            open={isOpen}
-            onOpenChange={closeModal}
-          />
-        </header>
-
+      <main className="flex flex-1 flex-col pt-2 pb-16">
         {loadError ? (
-          <p className="text-center text-destructive">{loadError}</p>
+          <div className="m-auto max-w-md text-center">
+            <p className="font-heading mb-2 text-xl font-semibold text-foreground">
+              No se pudieron cargar las preguntas
+            </p>
+            <p className="mb-6 text-muted-foreground">{loadError}</p>
+            <Button onClick={() => window.location.reload()}>
+              Intentar de nuevo
+            </Button>
+          </div>
         ) : !questions ? (
-          <p className="text-center text-muted-foreground">Cargando...</p>
+          <p className="m-auto text-muted-foreground">Cargando preguntas…</p>
         ) : (
           <QuestionnaireType>
             <Questionnaire questions={questions} evaluationId={evaluationId} />
           </QuestionnaireType>
         )}
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
 

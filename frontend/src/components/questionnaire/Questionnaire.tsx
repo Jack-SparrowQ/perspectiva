@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { Navigate } from "react-router-dom";
 
 import { Scenary } from "./Scenary";
@@ -76,20 +77,32 @@ export function Questionnaire({ questions, evaluationId }: QuestionnaireProps) {
   }
 
   return (
-    <div className="space-y-6">
-      <ProgressBar current={currentIndex + 1} total={questions.length} />
+    <MotionConfig reducedMotion="user">
+      <div className="space-y-8">
+        <ProgressBar current={currentIndex + 1} total={questions.length} />
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <Scenary content={currentQuestion.scenary} />
-        <Question
-          question={currentQuestion}
-          selectedOptionId={selectedOptionId}
-          error={error || submitError}
-          isLastQuestion={isLastQuestion}
-          onSelectOption={handleSelectOption}
-          onNext={handleNext}
-        />
+        <div className="grid items-start gap-8 md:grid-cols-[1fr_1.1fr] md:gap-12">
+          <Scenary content={currentQuestion.scenary} />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuestion.id}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}>
+              <Question
+                question={currentQuestion}
+                selectedOptionId={selectedOptionId}
+                error={error || submitError}
+                isLastQuestion={isLastQuestion}
+                submitting={submitting}
+                onSelectOption={handleSelectOption}
+                onNext={handleNext}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
+    </MotionConfig>
   );
 }

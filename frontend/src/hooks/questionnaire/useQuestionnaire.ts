@@ -12,7 +12,7 @@ export function useQuestionnaire(questions: Question[]) {
 
   function nextQuestion(selectedOptionId: string) {
     if (!selectedOptionId) {
-      setError("Seleccione una respuesta antes de continuar.");
+      setError("Elige una respuesta para continuar.");
       return;
     }
 

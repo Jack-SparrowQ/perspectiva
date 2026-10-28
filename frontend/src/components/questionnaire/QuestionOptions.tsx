@@ -1,7 +1,5 @@
 import type { Option } from "@/types/question";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { motion } from "motion/react";
-import { fadeUp } from "../../../lib/animation";
 
 interface QuestionOptionsProps {
   options: Option[];
@@ -15,28 +13,15 @@ export function QuestionOptions({
   onChange,
 }: QuestionOptionsProps) {
   return (
-    <RadioGroup value={value} onValueChange={onChange} className="space-y-3">
-      {options.map((option, index) => (
-        <motion.label
+    <RadioGroup value={value} onValueChange={onChange} className="gap-2">
+      {options.map((option) => (
+        <label
           key={option.id}
           htmlFor={option.id}
-          className="flex cursor-pointer items-center gap-3
-            rounded-lg border-1 p-4
-            transition-colors
-            hover:bg-muted m-0"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{
-            duration: 0.4,
-            delay: index * 0.1,
-            ease: "easeInOut",
-          }}
-        >
-          <RadioGroupItem value={option.id} id={option.id} />
+          className="m-0 flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background px-4 py-3.5 leading-snug text-foreground/85 transition-colors hover:border-primary/40 has-data-checked:border-primary has-data-checked:bg-primary/8 has-data-checked:text-foreground">
+          <RadioGroupItem value={option.id} id={option.id} className="mt-0.5" />
           <span>{option.label}</span>
-        </motion.label>
+        </label>
       ))}
     </RadioGroup>
   );
