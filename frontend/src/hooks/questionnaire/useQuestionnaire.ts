@@ -12,7 +12,7 @@ export function useQuestionnaire(questions: Question[]) {
 
   function nextQuestion(selectedOptionId: string) {
     if (!selectedOptionId) {
-      setError("Seleccione una resppuesta antes de continuar.");
+      setError("Seleccione una respuesta antes de continuar.");
       return;
     }
 
@@ -26,6 +26,12 @@ export function useQuestionnaire(questions: Question[]) {
     setCurrentIndex((previousIndex) => previousIndex + 1);
   }
 
+  function restart() {
+    setCurrentIndex(0);
+    setError("");
+    setFinished(false);
+  }
+
   return {
     currentIndex,
     currentQuestion,
@@ -33,5 +39,6 @@ export function useQuestionnaire(questions: Question[]) {
     error,
     finished,
     nextQuestion,
+    restart,
   };
 }

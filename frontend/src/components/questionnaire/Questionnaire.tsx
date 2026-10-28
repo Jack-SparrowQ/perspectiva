@@ -20,9 +20,10 @@ export function Questionnaire({ questions }: QuestionnaireProps) {
     error,
     finished,
     nextQuestion,
+    restart,
   } = useQuestionnaire(questions);
 
-  const { answers, selectAnswer } = useQuestionnaireAnswers();
+  const { answers, selectAnswer, clearAnswers } = useQuestionnaireAnswers();
 
   const evaluation = useQuestionnaireEvaluator(answers);
 
@@ -115,7 +116,12 @@ export function Questionnaire({ questions }: QuestionnaireProps) {
         </div>
 
         <div className="text-center">
-          <button className="px-6 py-3 bg-gray-800 text-white rounded-xl font-semibold hover:bg-gray-900 transition-all">
+          <button
+            onClick={() => {
+              clearAnswers();
+              restart();
+            }}
+            className="px-6 py-3 bg-gray-800 text-white rounded-xl font-semibold hover:bg-gray-900 transition-all">
             Reiniciar Evaluador
           </button>
         </div>

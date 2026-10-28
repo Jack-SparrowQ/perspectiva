@@ -22,8 +22,8 @@ export function QuestionPage() {
           <Button onClick={openModal}>Salir</Button>
 
           <Modal
-            title="¿Estas seguro de que quieres finalizar?"
-            description="Si lo haces todo el progreso no se guardara"
+            title="¿Estás seguro de que quieres finalizar?"
+            description="Si lo haces todo el progreso no se guardará"
             open={isOpen}
             onOpenChange={closeModal}
           />

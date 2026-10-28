@@ -17,7 +17,7 @@ interface CardImageProps {
 
 export function PatternCard(props: CardImageProps) {
   return (
-    <div className="h-">
+    <div className="h-full">
       <Card className="relative mx-0 h-full w-full max-w-sm pt-0 ">
         <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
         <img

@@ -30,7 +30,7 @@ export function Question({
   return (
     <Card className="bg-transparent border-0">
       <CardHeader>
-        <CardTitle className="tex-xl leading-relaxed text-left">
+        <CardTitle className="text-xl leading-relaxed text-left">
           {question.title}
         </CardTitle>
       </CardHeader>
@@ -40,7 +40,7 @@ export function Question({
           value={selectedOptionId}
           onChange={onSelectOption}
         />
-        {error && <p className="text-ms text-destructive">{error}</p>}
+        {error && <p className="text-sm text-destructive">{error}</p>}
       </CardContent>
       <CardFooter className="justify-end">
         <Button onClick={onNext}>
