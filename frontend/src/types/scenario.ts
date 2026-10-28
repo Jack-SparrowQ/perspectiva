@@ -3,6 +3,7 @@ export interface ScenarioAnswer {
   id: number;
   text: string;
   order: number;
+  weights: Partial<Record<string, number>>;
 }
 
 export interface ScenarioQuestion {
@@ -19,6 +20,7 @@ export interface Scenario {
   title: string;
   description: string;
   category: string;
+  imgUrl: string | null;
   order: number;
   questions: ScenarioQuestion[];
 }

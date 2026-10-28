@@ -26,12 +26,6 @@ export function useQuestionnaire(questions: Question[]) {
     setCurrentIndex((previousIndex) => previousIndex + 1);
   }
 
-  function restart() {
-    setCurrentIndex(0);
-    setError("");
-    setFinished(false);
-  }
-
   return {
     currentIndex,
     currentQuestion,
@@ -39,6 +33,5 @@ export function useQuestionnaire(questions: Question[]) {
     error,
     finished,
     nextQuestion,
-    restart,
   };
 }

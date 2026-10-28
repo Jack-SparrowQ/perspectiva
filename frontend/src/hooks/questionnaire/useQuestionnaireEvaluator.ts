@@ -1,12 +1,13 @@
 import { useMemo } from "react";
-import { questionsMock as QUESTIONS_MOCK } from "../../data/questions.mock";
 import { patternsMock as PATTERNS } from "../../data/patterns.mock";
 import type { UserAnswers } from "@/types/userAnswers";
 import type { EvaluationOutput } from "@/types/envaluationOutput";
 import type { PatternResult } from "@/types/patternResult";
+import type { Question } from "@/types/question";
 
 export const useQuestionnaireEvaluator = (
   userAnswers: UserAnswers,
+  questions: Question[],
 ): EvaluationOutput => {
   return useMemo(() => {
     // 1. Inicializar mapa de máximos posibles por patrón
@@ -20,7 +21,7 @@ export const useQuestionnaireEvaluator = (
 
     // Calcular máximo alcanzable dinámicamente
     PATTERNS.forEach((pattern) => {
-      QUESTIONS_MOCK.forEach((q) => {
+      questions.forEach((q) => {
         let maxWeightInQ = 0;
 
         q.options.forEach((opt) => {
@@ -42,7 +43,7 @@ export const useQuestionnaireEvaluator = (
     );
 
     Object.entries(userAnswers).forEach(([questionId, optionId]) => {
-      const question = QUESTIONS_MOCK.find((q) => q.id === questionId);
+      const question = questions.find((q) => q.id === questionId);
 
       const option = question?.options.find((opt) => opt.id === optionId);
 
@@ -93,9 +94,9 @@ export const useQuestionnaireEvaluator = (
       results: sortedResults,
       predominant,
       secondaries,
-      isComplete: Object.keys(userAnswers).length === QUESTIONS_MOCK.length,
+      isComplete: Object.keys(userAnswers).length === questions.length,
     };
-  }, [userAnswers]);
+  }, [userAnswers, questions]);
 };
 
 export default useQuestionnaireEvaluator;
