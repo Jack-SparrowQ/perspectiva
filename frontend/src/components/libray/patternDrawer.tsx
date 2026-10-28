@@ -1,19 +1,12 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "cn";
 
-import { useMediaQuery } from "../../hooks/use-media-query";
-import { Button } from "../../components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
 } from "../../components/ui/dialog";
 
 import type { PatternCognitive } from "@/types/patternCognitive";
-import { ScrollArea } from "../ui/scroll-area";
 
 interface PatternDrawerProps {
   pattern: PatternCognitive;

@@ -1,7 +1,5 @@
 import type { Option } from "@/types/question";
-import { QuestionnaireChoice, QuestionnaireChoices } from "../ui/questionnaire";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { Label } from "../ui/label";
 import { motion } from "motion/react";
 import { fadeUp } from "../../../lib/animation";
 

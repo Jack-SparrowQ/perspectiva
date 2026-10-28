@@ -1,4 +1,3 @@
-import type { PatternCognitive } from "./patternCognitive";
 import type { Scenary } from "./scenary";
 
 export type OptionWeights = Partial<Record<string, number>>;

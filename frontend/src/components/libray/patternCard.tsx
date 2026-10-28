@@ -1,17 +1,12 @@
-import React, { Children } from "react";
-import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { useNavigate } from "react-router-dom";
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "../ui/card";
 import type { PatternCognitive } from "@/types/patternCognitive";
-import { PatternDrawer } from "./patternDrawer";
 
 interface CardImageProps {
   pattern: PatternCognitive;

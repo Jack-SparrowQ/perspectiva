@@ -1,10 +1,8 @@
-import { useState } from "react";
 
 import { Scenary } from "./Scenary";
 import { ProgressBar } from "./ProgressBar";
 import { Question } from "./Question";
 
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import type { Question as QuestionType } from "../../types/question";
 import { useQuestionnaire } from "../../hooks/questionnaire/useQuestionnaire";
 import { useQuestionnaireAnswers } from "../../hooks/questionnaire/useQuestionnaireAnswers";
